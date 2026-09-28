@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Robolox</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>Robolox</h1>
+
+
+    <!-- ================================= -->
+    <!-- REGISTER -->
+    <!-- ================================= -->
+
+    <section id="registerSection">
+
+        <h2>Create account</h2>
+
+        <input
+            id="registerUsername"
+            type="text"
+            placeholder="Username"
+        >
+
+        <input
+            id="registerPassword"
+            type="password"
+            placeholder="Password"
+        >
+
+        <button onclick="register()">
+            Create account
+        </button>
+
+        <p id="registerMessage"></p>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- TOTP ENROLLMENT -->
+    <!-- ================================= -->
+
+    <section
+        id="enrollmentSection"
+        class="hidden"
+    >
+
+        <h2>Authenticator setup</h2>
+
+        <p>
+            Add this account to your authenticator.
+        </p>
+
+        <div class="account-info">
+
+            <p>
+                <strong>Service:</strong>
+                <span id="totpServiceName">
+                    Robolox
+                </span>
+            </p>
+
+            <p>
+                <strong>Username:</strong>
+                <span id="totpUsername">
+                    -
+                </span>
+            </p>
+
+        </div>
+
+
+        <h3>Scan this QR code</h3>
+
+        <div id="qrcode"></div>
+
+
+        <p>
+            Or enter the secret manually:
+        </p>
+
+        <div class="secret-box">
+
+            <strong id="totpSecret">
+                --------
+            </strong>
+
+        </div>
+
+
+        <p>
+            After adding the account to Google
+            Authenticator, enter the generated code.
+        </p>
+
+
+        <input
+            id="enrollmentCode"
+            type="text"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="6-digit code"
+        >
+
+
+        <button onclick="verifyEnrollment()">
+            Verify authenticator
+        </button>
+
+
+        <p id="enrollmentMessage"></p>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- LOGIN -->
+    <!-- ================================= -->
+
+    <section id="loginSection">
+
+        <h2>Login</h2>
+
+        <input
+            id="loginUsername"
+            type="text"
+            placeholder="Username"
+        >
+
+        <input
+            id="loginPassword"
+            type="password"
+            placeholder="Password"
+        >
+
+        <button onclick="login()">
+            Login
+        </button>
+
+        <p id="loginMessage"></p>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- TOTP LOGIN -->
+    <!-- ================================= -->
+
+    <section
+        id="totpLoginSection"
+        class="hidden"
+    >
+
+        <h2>Two-factor authentication</h2>
+
+        <p>
+            Enter the code from Google Authenticator.
+        </p>
+
+        <input
+            id="loginTotp"
+            type="text"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="6-digit code"
+        >
+
+        <button onclick="verifyLoginTotp()">
+            Verify
+        </button>
+
+        <p id="totpLoginMessage"></p>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- DASHBOARD -->
+    <!-- ================================= -->
+
+    <section
+        id="dashboardSection"
+        class="hidden"
+    >
+
+        <h2>Robolox Dashboard</h2>
+
+        <p id="dashboardMessage"></p>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>
