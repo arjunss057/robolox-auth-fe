@@ -1,6 +1,6 @@
 //app.js
 
-const API_URL = "http://localhost:8001";
+const API_URL = "https://robolox-auth.onrender.com";
 
 let accessToken = localStorage.getItem("robolox_access_token");
 let enrollmentToken = null;
